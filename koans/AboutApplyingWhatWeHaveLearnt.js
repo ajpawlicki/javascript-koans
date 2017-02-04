@@ -263,12 +263,19 @@ describe("About Applying What We Have Learnt", function() {
     }
 
     var primeNumber10001st;
+    var i = 1;
+    var number = 2;
 
     while(i <= 10001) {
-      
+      if(isPrime(number)) {
+        primeNumber10001st = number;
+        i++;
+      }
+      number++;
     }
 
-
+    // console.log(primeNumber10001st);
+    expect(primeNumber10001st).toBe(104743);
   });
 
 });
