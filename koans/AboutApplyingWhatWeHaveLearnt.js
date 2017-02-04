@@ -171,7 +171,12 @@ describe("About Applying What We Have Learnt", function() {
 
     _.each(threeDigitNumbers, function(element1) {
       _.each(threeDigitNumbers, function(element2) {
-        products.push([element1, element2, element1 * element2]);
+        //products.push([element1, element2, element1 * element2]);
+        products.push({
+          number1: element1,
+          number2: element2,
+          product: element1 * element2
+        });
       });
     })
 
@@ -179,17 +184,17 @@ describe("About Applying What We Have Learnt", function() {
       // map: multiply array by each element in array
       // filter palindromes
       // return largest element
-      .filter(function(array) {
-        return isPalindrome(array[2]);
+      .filter(function(object) {
+        return isPalindrome(object.product);
       })
       .reduce(function(accumulator, current) {
-        return current[2] > accumulator[2] ? current : accumulator;
+        return current.product > accumulator.product ? current : accumulator;
       })
       .value();
 
       // console.log(largestPalindrome);
 
-      expect(largestPalindrome).toBe(906609);
+      expect(largestPalindrome.product).toBe(906609);
 
   });
 
