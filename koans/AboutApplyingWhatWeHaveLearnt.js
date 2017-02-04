@@ -118,11 +118,57 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR EXTRA CREDIT */
 
   it("should find the largest prime factor of a composite number", function () {
-  
+    var largestPrimeFactor = function(number) {
+      // prime = only divisible by itself and 1
+
+      var isPrime = function(number) {
+        for (var j = 2; j < number; j++) {
+          if (number % j == 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      /*var primeFactor = 0;
+
+      for (var i = 0; i < number; i++) {
+        // check if factor
+        if (number % i == 0) {
+          // check if i is prime
+          if(isPrime(i)) {
+            //console.log(i);
+            primeFactor = i;
+          }
+        }
+      }
+      return primeFactor;*/
+
+      var range = _.range(1, number);
+
+      var largestPrimeFactor = _.chain(range)
+        .filter(function(element) {
+          return number % element == 0 && isPrime(element);
+        })
+        .last()
+        .value();
+
+      return largestPrimeFactor;
+    }
+
+    expect(largestPrimeFactor(398)).toBe(199);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
     
+    var threeDigitNumbers = _.range(100, 999);
+
+    function isPalindrome(number) {
+      return number == JSON.stringify(number).split('').reverse().join('');
+    }
+
+    var largestPalindrome;
+
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
