@@ -200,6 +200,20 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
       
+      var smallestNumber;
+
+      function divisibleBy1thru20(number) {
+        for (var i = 0; i <= 20; i ++) {
+          if (number % i != 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      while( ) {
+        i++;
+      }
     
   });
 
