@@ -200,21 +200,30 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
       
-      var smallestNumber;
-
       function divisibleBy1thru20(number) {
-        for (var i = 0; i <= 20; i ++) {
-          if (number % i != 0) {
+        for (var i = 1; i <= 20; i ++) {
+          if (number % i > 0) {
             return false;
           }
         }
         return true;
       }
 
-      while( ) {
+      var i = 1;
+      var smallestNumber;
+
+      while(!divisibleBy1thru20(i)) {
         i++;
+        /*if(divisibleBy1thru20(i)) {
+          smallestNumber = i;
+        }*/
+        smallestNumber = i;
       }
-    
+      
+      // console.log(smallestNumber);
+
+      expect(smallestNumber).toBe(232792560);
+
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
