@@ -227,10 +227,47 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
+    function difference(n) {
+      var array = _.range(1, n + 1);
+
+      var sumOfSquares = _.chain(array)
+        .map(function(element) { return element * element; })
+        .reduce(function(accumulator, current) {
+          return accumulator + current;
+        })
+        .value();
+
+      var sums = array.reduce(function(accumulator, current) {
+        return accumulator + current;
+      })
+
+      var squareOfSums = sums * sums;
+
+      return squareOfSums - sumOfSquares;
+    }
+
+    // console.log(difference(10));
+
+    expect(difference(10)).toBe(2640);
   });
 
   it("should find the 10001st prime", function () {
+
+    var isPrime = function(number) {
+      for (var j = 2; j < number; j++) {
+        if (number % j == 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    var primeNumber10001st;
+
+    while(i <= 10001) {
+      
+    }
+
 
   });
 
