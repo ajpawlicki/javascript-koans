@@ -161,13 +161,35 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
     
-    var threeDigitNumbers = _.range(100, 999);
+    var threeDigitNumbers = _.range(100, 1000);
+
+    var products = [];
 
     function isPalindrome(number) {
       return number == JSON.stringify(number).split('').reverse().join('');
     }
 
-    var largestPalindrome;
+    _.each(threeDigitNumbers, function(element1) {
+      _.each(threeDigitNumbers, function(element2) {
+        products.push([element1, element2, element1 * element2]);
+      });
+    })
+
+    var largestPalindrome = _.chain(products)
+      // map: multiply array by each element in array
+      // filter palindromes
+      // return largest element
+      .filter(function(array) {
+        return isPalindrome(array[2]);
+      })
+      .reduce(function(accumulator, current) {
+        return current[2] > accumulator[2] ? current : accumulator;
+      })
+      .value();
+
+      // console.log(largestPalindrome);
+
+      expect(largestPalindrome).toBe(906609);
 
   });
 
